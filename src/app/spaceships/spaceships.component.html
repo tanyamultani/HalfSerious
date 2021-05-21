@@ -1,0 +1,42 @@
+<div class="global-style" fxLayout="column">
+    <div fxLayout="row" class="header" fxLayoutAlign="center center">
+        <div class="header-title">
+            <p>Star Wars Spaceships</p>
+        </div>
+    </div>
+
+    <div fxLayout="column"   *ngFor="let starship of starships">
+        <button class="button" (click) ="showPilotInfo()">
+            <div class="circle-text">
+                <p>{{starship.name}} </p>
+            </div>
+        </button>
+        <div class="info" fxLayout="row" fxLayoutAlign="space-around center">
+
+            <div>
+                <p>Class: {{starship.starship_class}} </p>
+                <p>Model: {{starship.model}} </p>
+                <p>Cargo Capacity: {{starship.cargo_capacity}} </p>
+                <p>MGLT: {{starship.MGLT}} </p>
+            </div>
+            <div>
+                <p>Crew: {{starship.crew}} </p>
+                <p>Cost In Credits: {{starship.cost_in_credits}} </p>
+                <p>Passengers: {{starship.passengers}} </p>
+                <p>Consumables: {{starship.consumables}} </p>
+            </div>
+
+           
+        </div>
+        <!--
+        <button mat-raised-button color="primary" class="button">Want to know more? Click here!</button>
+        -->
+        <div *ngIf="showPilots">
+        <div *ngFor="let pilot of getPilot(starship.name)">
+            <p>Pilot: {{pilot.name}}</p>
+        </div>
+    </div>
+    </div>
+
+
+</div>
